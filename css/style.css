@@ -1,9 +1,10 @@
 body {
-  background-image: url("../img/blue-wave-abstract.webp");
-  background-color: rgb(21, 77, 141);
+  background-image: url("../img/northern-lights.jpg");
+  background-color: rgb(20, 55, 58);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 90%;
 
 }
 
@@ -11,8 +12,8 @@ body {
   border-radius: 25px;
   width: 350px; 
   height: 700px;
-  background-color: rgb(13, 39, 70);
-  color: rgb(213, 232, 255);
+  background-color: rgb(24, 53, 73);
+  color: white;
 }
 
 main {
@@ -26,9 +27,9 @@ section {
 
 }
 
-action {
+.action {
   width: 350px; 
-  height: 75px;
+  height: 100px;
   font-size: 20px;
 }
 
@@ -57,7 +58,7 @@ info {
 }
 
 next {
-  height:1vh;
+  height:2v;
 }
 
 reset {
