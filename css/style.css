@@ -1,21 +1,78 @@
-
-
-
 body {
+  background-image: url("../img/blue-wave-abstract.webp");
+  background-color: rgb(21, 77, 141);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.container {
+  border-radius: 25px;
+  width: 350px; 
+  height: 700px;
+  background-color: rgb(13, 39, 70);
+  color: rgb(213, 232, 255);
+}
+
+main {
+  width: 350px; 
+  height: 400px;
+}
+
+section {
+  width: 350px; 
+  height: 75px;
+
+}
+
+action {
+  width: 350px; 
+  height: 75px;
+  font-size: 20px;
+}
+
+directions {
   text-align: center;
-  background-color: rgb(76, 65, 95);
-  color: whitesmoke;
-
+  font-size: 50px;
 
 }
 
-row {
-  background-color: rgb(76, 65, 95);
-  color: whitesmoke;
+options {
+  align-items: center;
+}
+
+answer {
+  text-align: center;
+  font-size: 100px;
+}
+
+example {
+  font-size: 20px;
+}
+
+info {
+  font-size: 20px;
+  word-wrap: normal;
+}
+
+next {
+  height:1vh;
+}
+
+reset {
+  height:1vh;
 
 }
 
-header {
-  font-size: large;
-  color: whitesmoke;
+
+
+.columns {
+  -webkit-column-gap: 8px;
+     -moz-column-gap: 8px;
+          column-gap: 8px;
+  -webkit-column-count: 6;
+     -moz-column-count: 6;
+          column-count: 6;
+  font-size: 13px;        
 }

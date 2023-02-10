@@ -1,9 +1,9 @@
-let h1 = document.querySelector("h1");
-let h2 = document.querySelector("h2");
-let h3 = document.querySelector("h3");
+let directions = document.querySelector("directions");
+let options = document.querySelector("options");
+let answer = document.querySelector("answer");
 
-let p1 = document.querySelector("p1");
-let p2 = document.querySelector("p2");
+let example = document.querySelector("example");
+let info = document.querySelector("info");
 
 let next = document.getElementById("next");
 let reset = document.getElementById("reset");
@@ -15,66 +15,67 @@ let state = {
   pages: [
 //page 0    
     {
-      header: "I can read your mind.",
+      directions: "I can read your mind.",
       options: "",
       answer: "",
       example: "",
       info: "",
-      button: "Start",
-      return: "",
+      next: "Start",
+      reset: "",
     },
 //page 1    
     {
-      header: "Pick a number from 1-99.",
+      directions: "Pick a number from 1-99.",
       options: "",
       answer: "",
-      example: "",
-      info: "When you have picked your number click NEXT",
-      button: "NEXT",
-      return: "Restart",
+      example: "Pick your number",
+      info: "Then click NEXT",
+      next: "NEXT",
+      reset: "Start Over",
     },
 //page 2    
     {
-      header: "Add both digits together to get a new number.",
+      directions: "Add both digits together to get a new number.",
       options: "",
       answer: "",
       example: "Ex: 14 is now 1 + 4 = 5",
       info: "Click NEXT to continue.",
-      button: "NEXT",
-      return: "Restart",
+      next: "NEXT",
+      reset: "Start Over",
     },
 //page 3  
     {
-      header: "Subtract your new number from your original number.",
+      directions: "Subtract your new number from your original number.",
       options: "",
       answer: "",
       example: "Ex: 14 - 5 = 9",
       info: "Click NEXT to continue.",
-      button: "NEXT",
-      return: "Restart",
+      next: "NEXT",
+      reset: "Start Over",
     },
 //page 4    
     {
-      header: "",
+      directions: "",
       options: loadSymbols(symbols),
       answer: "",
       example: "Find your new number",
-      info: "Remember the symbol next to your number.",
-      button: "REVEAL MY SYMBOL",
-      return: "Restart",
+      info: "Remember the symbol<br>next to your number.",
+      next: "REVEAL MY SYMBOL",
+      reset: "Start Over",
     },
 //page 5
     {
-      header: "Your Symbol is",
+      directions: "Your Symbol is",
       options: "",
       answer: "%",
       example: "",
       info: "",
-      button: "",
-      return: "/uF130",
+      next: "",
+      reset: "Play Again",
     },                    
   ]
 }
+
 
 
 function loadSymbols(arr) {
@@ -86,29 +87,69 @@ function loadSymbols(arr) {
   for (let i = 0; i < 100; i++) {
     x[i] = i + " - " + x[i] + "<br>"
   }
-return x.toLocaleString().replaceAll(",", "");
+  return x.toLocaleString().replaceAll(",", "");
 }
 
 function setPage(page) {
-  h1.innerHTML = state.pages[page].header;
-  h2.innerHTML = state.pages[page].options;
-  h3.innerHTML = state.pages[page].answer;
-  p1.innerHTML = state.pages[page].example;
-  p2.innerHTML = state.pages[page].info;
-  next.innerHTML = state.pages[page].button;
-  reset.innerHTML = state.pages[page].return;
+  directions.innerHTML = state.pages[page].directions;
+    if(directions.innerHTML == "") {
+      directions.style.visibility = "hidden"
+    }
+    else {
+      directions.style.visibility = ""
+    }
+  options.innerHTML = state.pages[page].options;
+    if(options.innerHTML == "") {
+      options.style.visibility = "hidden"
+    }
+    else {
+      options.style.visibility = ""
+    }  
+
+  answer.innerHTML = state.pages[page].answer;
+    if(answer.innerHTML == "") {
+      answer.style.visibility = "hidden"
+    }
+    else {
+      answer.style.visibility = ""
+    }
+  example.innerHTML = state.pages[page].example;
+    if(example.innerHTML == "") {
+      example.style.visibility = "hidden"
+    }
+    else {
+      example.style.visibility = ""
+    }
+  info.innerHTML = state.pages[page].info;
+    if(info.innerHTML == "") {
+      info.style.visibility = "hidden"
+    }
+    else {
+      info.style.visibility = ""
+    }
+  next.innerHTML = state.pages[page].next;
+    if(next.innerHTML == "") {
+      next.style.visibility = "hidden"
+    }
+    else {
+      next.style.visibility = ""
+    }
+
+  reset.innerHTML = state.pages[page].reset;
+    if(reset.innerHTML == "") {
+      reset.style.visibility = "hidden"
+    }
+    else {
+      reset.style.visibility = ""
+    }
   state.page = page;
   location.hash = page;
 
-    if(next.innerHTML == "") {
-      next.style.display = "none";
-    }
-    else {
-      next.style.display = ""
-    }
-    (page == 0 ? go.innerHTML = "Reset" : go.innerHTML = "\uF130")
-    localStorage.setItem("page", state.page) 
+
+
 }
+
+
 
 next.addEventListener("click", () => {
   setPage(state["page"] + 1)
