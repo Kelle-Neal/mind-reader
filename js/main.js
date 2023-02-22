@@ -83,7 +83,6 @@ function loadSymbols(arr) {
   for (let i = 0; i < 100; i++) {
     x.push(symbols[i % 9])
   }
-
   for (let i = 0; i < 100; i++) {
     x[i] = i + " - " + x[i] + "<br>"
   }
